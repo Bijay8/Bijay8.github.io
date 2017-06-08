@@ -45,7 +45,7 @@ myApp.controller('viewController',['$http','$routeParams',function($http,$routeP
 else
    this.baseUrl = 'https://raw.githubusercontent.com/openfootball/football.json/master/2016-17/en.1.json';
     this.details=function()
-   {
+   {   alert("abc")
       $http({
         method: 'GET',
         url: main.baseUrl
