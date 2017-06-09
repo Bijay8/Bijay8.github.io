@@ -45,7 +45,7 @@ myApp.controller('viewController',['$http','$routeParams',function($http,$routeP
 else
    this.baseUrl = 'https://raw.githubusercontent.com/openfootball/football.json/master/2016-17/en.1.json';
     this.details=function()
-   {   alert("abc")
+   {   
       $http({
         method: 'GET',
         url: main.baseUrl
@@ -53,7 +53,7 @@ else
           // this callback will be called asynchronously
           // when the response is available
           console.log(response.data);
-          console.log("abc");
+          
           main.name=response.data.name
           main.rounds=response.data.rounds;
           
@@ -81,22 +81,19 @@ else
   {
      this.baseUrl = 'https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.json'
      this.details();
- //    return(main.results=true)
-     //return (main.results ? main.results=false : main.results=true)        
+       
   }
   else{
      if (year == '2016')
      {
         this.baseUrl= 'https://raw.githubusercontent.com/openfootball/football.json/master/2016-17/en.1.json'
         this.details();
-      //  return(main.results=true)
-        //return (main.results ? main.results=false : main.results=true)
+     
      }
      else
       {
         alert("please enter a valid year")
-        //  return(main.results=false)
-        //return (main.results ? main.results=false : main.results=true)
+     
       }
     }
    
