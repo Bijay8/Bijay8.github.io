@@ -4,28 +4,45 @@
                 
                  <ul class="pager">             
                     <li class="next">
-                        <a ng-href="#/other/{{data.year}}">Team Information  &rarr;</a>
+                        <a ng-href="#/other/{{data.year}}">Team Information  &rarr;</a><br>
                     </li>
                 </ul>
-                
+                <label>Search By:</label><br>
+                 <div class="row">
+                           <div class="col-xs-3 col-xs-offset-2">
+                           <input type="text" placeholder="Enter round name" ng-model="round">
+                           </div>
+                           <div class="col-xs-3 col-xs-offset-2">
+                           <input  placeholder="Filter by name,Code Or Date" ng-model="search1.$">
+                           </div>
+                  </div>
+                  <div class="row">         
+                        <div class="col-xs-3 col-xs-offset-2">
+                           <input placeholder="Filter by Date" ng-model="search1.date">
+                        </div> 
+                        <div class="col-xs-3 col-xs-offset-2">
+                           <input placeholder="Filter by Team1 " ng-model="search1.team1.name">
+                        </div>  
+                  </div>  
+                   <div class="row">         
+                        <!-- <div class="col-xs-3 col-xs-offset-2">
+                           <input placeholder="Filter by Date" ng-model="search1.date">
+                        </div>  -->
+                        <div class="col-xs-3 col-xs-offset-2">
+                           <input placeholder="Filter by Team2 " ng-model="search1.team2.name">
+                        </div>  
+                  </div> <br>
+                   Click to see Match Status  or Score:<button ng-class="{'result': false}" ng-click="result=data.Bywinner()"> Clickme</button>
+
+                    
+                           
+                        
     
                 <div class="post-preview" >
                         <h2 class="post-title">
                             {{data.name}}
                         </h2>
-                        <h4 class="post-subtitle">
-                        <form>
-                           <label>Filter By:</label><br>
-                           <label>Round Name: <input type="text" placeholder="Enter round name" ng-model="round"></label> <br>
-                           <label>Any detail&nbsp;: <input  placeholder="Filter by name,Code Or Date" ng-model="search1.$"></label> <br>
-                           <label>Year only&nbsp;:<input placeholder="Filter by Date" ng-model="search1.date"></label><br>
-                           <label>Team one&nbsp;:<input placeholder="Filter by Team1 " ng-model="search1.team1.name"></label><br>
-                           <label>Team TWo&nbsp;: <input placeholder="Filter by Team2 " ng-model="search1.team2.name"></label><br>
-                           <label>Click to see Match Status  or Score:<button ng-class="{'result': false}" ng-click="result=data.Bywinner()">
-                            Clickme</button></label>
-                       </form>
-
-                        </h4>
+          
                         <p> Click on each match to get more details</p>     
                     <div class="post-meta"  ng-repeat="round in data.rounds | filter:round"> <h3>{{round.name}}</h3>
                     <div class="post-meta  well"  ng-repeat="match in round.matches | filter :search1" >
